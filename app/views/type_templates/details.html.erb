@@ -1,0 +1,47 @@
+<h1>
+  Type #<%= @type.id %> details
+</h1>
+
+<div>
+  <div>
+    <a href="/types">
+      Go back
+    </a>
+  </div>
+
+  <div>
+    <a href="/existing_type_form/<%= @type.id %>">
+      Edit type
+    </a>
+  </div>
+
+  <div>
+    <a href="/delete_type/<%= @type.id %>">
+      Delete type
+    </a>
+  </div>
+</div>
+
+<dl>
+  <dt>
+    Name
+  </dt>
+  <dd>
+    <%= @type.name %>
+  </dd>
+
+  <dt>
+    Created at
+  </dt>
+  <dd>
+    <%= time_ago_in_words(@type.created_at) %> ago
+  </dd>
+
+  <dt>
+    Updated at
+  </dt>
+  <dd>
+    <%= time_ago_in_words(@type.updated_at) %> ago
+  </dd>
+</dl>
+

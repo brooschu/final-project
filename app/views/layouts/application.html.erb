@@ -16,6 +16,8 @@
     <!-- Embedding other CSS and JavaScript from gems and things -->
     <%= stylesheet_link_tag    "application", media: "all" %>
     <%= javascript_include_tag "application" %>
+    
+    <link rel="stylesheet" href="/light.css">
 
     <!-- Rails security stuff -->
     <%= csrf_meta_tags %>
@@ -35,6 +37,61 @@
   </head>
 
   <body>
+    
+    <nav>
+      
+      <div>
+        <a href="/">
+          <i class="fas fa-glass-whiskey fa-fw"></i>
+
+          Home
+        </a>
+      </div>
+      
+      <div>
+        <a href="/whiskey_entries/">
+          <i class="fas fa-wine-bottle fa-fw"></i>
+
+          My Whiskey Cabinet 
+        </a>
+      </div>
+
+      <div>
+        <a href="/reviews">
+          <i class="fas fa-search fa-fw"></i>
+
+          Browse
+        </a>
+      </div>
+      
+      <hr>
+      
+      <% if current_user.blank? %>
+        <div>
+          <a href="/users/sign_in">
+            Sign in
+          </a>
+        </div>
+
+        <div>
+          <a href="/users/sign_up">
+            Sign up
+          </a>
+        </div>
+      <% else %>
+        <div>
+          <a href="/users/edit">
+            Edit profile
+          </a>
+        </div>
+
+        <div>
+          <a href="/users/sign_out" data-method="delete">
+            Sign out
+          </a>
+        </div>
+      <% end %>
+    </nav>
 
     <!-- ↓↓↓ Your view templates all get plugged in below ↓↓↓ -->
     <%= yield %>

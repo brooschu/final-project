@@ -1,0 +1,47 @@
+<h1>
+  Edit review <%= @review.whiskey_name %>
+</h1>
+
+<hr>
+
+<%= render("review_templates/validation_failures.html.erb") %>
+
+<form action="/update_review_record/<%= @review.id %>" method="post">
+  <div>
+    <label for="whiskey_name">
+      Whiskey name
+    </label>
+
+    <input type="text" id="whiskey_name" name="whiskey_name" value="<%= @review.whiskey_name %>">
+  </div>
+
+  <div>
+    <label for="rating">
+      Rating
+    </label>
+
+    <input type="text" id="rating" name="rating" value="<%= @review.rating %>">
+  </div>
+
+  <div>
+    <label for="review">
+      Review
+    </label>
+
+    <textarea id="review" name="review" rows="3"><%= @review.review %></textarea>
+  </div>
+
+  <input type="hidden" name="whiskey_entry_id" value="<%= @review.whiskey_entry_id %>">
+
+  <input type="hidden" name="user_id" value="<%= current_user.id %>">
+
+  <button>
+    Update review
+  </button>
+</form>
+
+<hr>
+
+<a href="/reviews">
+  Go back
+</a>

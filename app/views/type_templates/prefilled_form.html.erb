@@ -1,0 +1,27 @@
+<h1>
+  Edit type #<%= @type.id %>
+</h1>
+
+<hr>
+
+<%= render("type_templates/validation_failures.html.erb") %>
+
+<form action="/update_type_record/<%= @type.id %>" method="post">
+  <div>
+    <label for="name">
+      Name
+    </label>
+
+    <input type="text" id="name" name="name" value="<%= @type.name %>">
+  </div>
+
+  <button>
+    Update type
+  </button>
+</form>
+
+<hr>
+
+<a href="/types">
+  Go back
+</a>

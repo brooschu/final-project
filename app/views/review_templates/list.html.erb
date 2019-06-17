@@ -1,0 +1,56 @@
+<h1>
+  Review list
+</h1>
+
+<% if current_user.present? %>
+<a href="/new_review_form">
+  <i class="fas fa-plus"></i>
+  Add a new review
+</a>
+
+<% end %>
+
+<hr>
+
+<table>
+  <tr>
+
+    <th>
+      Whiskey name
+    </th>
+
+    <th>
+      Rating
+    </th>
+
+    <th>
+      User
+    </th>
+
+    <th>
+      Read Review
+    </th>
+  </tr>
+
+  <% @reviews.all.order({ :rating => :desc }).each do |review| %>
+  <tr>
+   <td>
+      <%= review.whiskey_name %>
+    </td>
+
+    <td>
+      <%= review.rating %>
+    </td>
+
+    <td>
+      <%= review.owner.name %>
+    </td>
+
+    <td>
+      <a href="/reviews/<%= review.id %>">
+        Read review
+      </a>
+    </td>
+  </tr>
+  <% end %>
+</table>

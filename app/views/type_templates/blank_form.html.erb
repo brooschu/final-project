@@ -1,0 +1,27 @@
+<h1>
+  Add a new type
+</h1>
+
+<hr>
+
+<%= render("type_templates/validation_failures.html.erb") %>
+
+<form action="/insert_type_record" method="post">
+  <div>
+    <label for="name">
+      Name
+    </label>
+
+    <input type="text" id="name" name="name" value="<%= @type.name %>">
+  </div>
+
+  <button>
+    Create type
+  </button>
+</form>
+
+<hr>
+
+<a href="/types">
+  Go back
+</a>

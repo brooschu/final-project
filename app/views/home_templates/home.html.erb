@@ -1,0 +1,48 @@
+<% if current_user.present? %>
+
+<h1>Welcome <%= current_user.name %>!</h1>
+
+<div>
+     <i class="fas fa-wine-bottle fa-fw"></i>
+
+    Keep your cabinet stocked. Make sure to track any new whiskeys that you try.
+</div>
+
+<div>
+    <i class="fas fa-search fa-fw"></i>
+    Need some inspo? Read reviews from professionals to find new whiskeys to try. 
+</div>
+
+<p>Cheers!</p>
+
+<p><div>
+    <img src="adam-wilson-416248-unsplash.jpg" 
+</div></p>
+
+<% end %>
+
+<% if current_user.blank? %>
+
+<h1>Wry Whiskey</h1>
+
+<p>Welcome to the Wry Whiskey app!</p>  
+
+<div>
+    <i class="fas fa-glass-whiskey fa-fw"></i>
+
+    Create a profile to keep track of your favorite whiskeys in your cabinent.
+</div>
+
+<div>
+    <i class="fas fa-glass-whiskey fa-fw"></i>
+    Browse reviews from professionals to disocver new whiskeys to try.
+</div>
+
+<p>Cheers!</p>
+
+
+<p><div>
+    <img src="adam-jaime-119551-unsplash.jpg" 
+</div></p>
+
+<% end %>

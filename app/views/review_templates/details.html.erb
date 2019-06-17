@@ -1,0 +1,58 @@
+<h1>
+  Review of <%= @review.whiskey_name %>
+</h1>
+
+<div>
+  <div>
+    <a href="/reviews">
+      Go back
+    </a>
+  </div>
+
+<% if current_user.present? %>
+  <div>
+    <a href="/existing_review_form/<%= @review.id %>">
+      Edit review
+    </a>
+  </div>
+
+  <div>
+    <a href="/delete_review/<%= @review.id %>">
+      Delete review
+    </a>
+  </div>
+</div>
+
+<% end %>
+
+<dl>
+  <dt>
+    Whiskey name
+  </dt>
+  <dd>
+    <%= @review.whiskey_name %>
+  </dd>
+
+  <dt>
+    Rating
+  </dt>
+  <dd>
+    <%= @review.rating %>
+  </dd>
+
+  <dt>
+    Review
+  </dt>
+  <dd>
+    <%= @review.review %>
+  </dd>
+
+  <dt>
+    User
+  </dt>
+  <dd>
+    <%= @review.owner.name %>
+  </dd>
+
+</dl>
+

@@ -1,0 +1,74 @@
+<h1>
+  Add a new whiskey 
+</h1>
+
+<hr>
+
+<%= render("whiskey_entry_templates/validation_failures.html.erb") %>
+
+<form action="/insert_whiskey_entry_record" method="post">
+  <div>
+    <label for="image">
+      Image
+    </label>
+
+    <input type="text" id="image" name="image" value="<%= @whiskey_entry.image %>">
+  </div>
+
+  <div>
+    <label for="whiskey_name">
+      Whiskey name
+    </label>
+
+    <input type="text" id="whiskey_name" name="whiskey_name" value="<%= @whiskey_entry.whiskey_name %>">
+  </div>
+
+  <div>
+    <label for="type_id_dropdown">Type</label>
+     <select id="type_id_dropdown" name="type_name">
+        <% Type.all.order({ :name => :asc }).each do |a_type| %>
+        <option value="<%= a_type.id %>">
+            <%= a_type.name %>
+        </option>
+        <%end%>
+    </select>
+
+  </div>
+
+  <div>
+    <label for="rating">
+      Rating (1-5)
+    </label>
+
+    <input type="text" id="rating" name="rating" value="<%= @whiskey_entry.rating %>">
+  </div>
+
+  <div>
+    <label for="note_text">
+      Notes
+    </label>
+
+    <textarea id="note_text" name="note_text"><%= @whiskey_entry.note_text %></textarea>
+  </div>
+
+  <div>
+    <label for="price">
+      Price
+    </label>
+
+    <input type="text" id="price" name="price" value="<%= @whiskey_entry.price %>">
+  </div>
+  
+  <input type="hidden" name="user_id" value="<%= current_user.id %>">
+
+  <button>
+    Add to my cabinet
+  </button>
+</form>
+
+<hr>
+
+<a href="/whiskey_entries">
+  Go back
+</a>
+

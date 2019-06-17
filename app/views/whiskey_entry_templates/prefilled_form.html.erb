@@ -1,0 +1,69 @@
+<h1>
+  Edit <%= @whiskey_entry.whiskey_name %> 
+</h1>
+
+<hr>
+
+<%= render("whiskey_entry_templates/validation_failures.html.erb") %>
+
+<form action="/update_whiskey_entry_record/<%= @whiskey_entry.id %>" method="post">
+  <div>
+    <label for="image">
+      Image
+    </label>
+
+    <input type="text" id="image" name="image" value="<%= @whiskey_entry.image %>">
+  </div>
+
+  <input type="hidden" name="user_id" value="<%= current_user.id %>">
+
+  <div>
+    <label for="whiskey_name">
+      Whiskey name
+    </label>
+
+    <input type="text" id="whiskey_name" name="whiskey_name" value="<%= @whiskey_entry.whiskey_name %>">
+  </div>
+
+  <div>
+    <label for="type_id">
+      Type
+    </label>
+
+    <input type="text" id="type_id" name="type_id" value="<%= @whiskey_entry.type_id %>">
+  </div>
+
+  <div>
+    <label for="rating">
+      Rating
+    </label>
+
+    <input type="text" id="rating" name="rating" value="<%= @whiskey_entry.rating %>">
+  </div>
+
+  <div>
+    <label for="note_text">
+      Note text
+    </label>
+
+    <textarea id="note_text" name="note_text" rows="3"><%= @whiskey_entry.note_text %></textarea>
+  </div>
+
+  <div>
+    <label for="price">
+      Price
+    </label>
+
+    <input type="text" id="price" name="price" value="<%= @whiskey_entry.price %>">
+  </div>
+
+  <button>
+    Update whiskey entry
+  </button>
+</form>
+
+<hr>
+
+<a href="/whiskey_entries">
+  Go back
+</a>

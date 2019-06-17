@@ -1,0 +1,84 @@
+<h1>
+  My Whiskey Cabinet
+</h1>
+
+
+<% if current_user.blank? %>
+
+<i class="fas fa-user" ></i> Sign in to add to your cabinent.
+
+<% end %>
+
+<% if current_user.present? %>
+
+<a href="/new_whiskey_entry_form">
+  <i class="fas fa-plus"></i>
+  Add a new whiskey
+</a>
+
+<hr>
+
+<table>
+  <tr>
+
+    <th>
+      Image
+    </th>
+
+    <th>
+      Whiskey name
+    </th>
+
+    <th>
+      Type
+    </th>
+
+    <th>
+      Rating
+    </th>
+
+    <th>
+      Price
+    </th>
+    
+    <th>
+      Details
+    </th>
+
+    </th>
+  </tr>
+
+  <% @whiskey_entries.order({ :type_id => :asc }).each do |whiskey_entry| %>
+  <tr>
+    
+    <td>
+      <img src="<%= whiskey_entry.image %>">
+    </td>
+
+    <td>
+      <%= whiskey_entry.whiskey_name %>
+    </td>
+
+    <td>
+      <%= whiskey_entry.match.name %>
+    </td>
+
+    <td>
+      <%= whiskey_entry.rating %>
+    </td>
+
+    <td>
+      <%= whiskey_entry.price %>
+    </td>
+
+    <td>
+      <a href="/whiskey_entries/<%= whiskey_entry.id %>">
+        Show details
+      </a>
+    </td>
+  </tr>
+  <% end %>
+</table>
+
+<% end %>
+

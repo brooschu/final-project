@@ -1,0 +1,70 @@
+<h1>
+  <%= @whiskey_entry.whiskey_name %> 
+</h1>
+
+<div>
+  <div>
+    <a href="/whiskey_entries">
+      Go back
+    </a>
+  </div>
+
+  <div>
+    <a href="/existing_whiskey_entry_form/<%= @whiskey_entry.id %>">
+      Edit whiskey entry
+    </a>
+  </div>
+
+  <div>
+    <a href="/delete_whiskey_entry/<%= @whiskey_entry.id %>">
+      Delete whiskey entry
+    </a>
+  </div>
+</div>
+
+<dl>
+  <dt>
+    Image
+  </dt>
+  <dd>
+    <img src="<%= @whiskey_entry.image %>">
+  </dd>
+
+  <dt>
+    Whiskey name
+  </dt>
+  <dd>
+    <%= @whiskey_entry.whiskey_name %>
+  </dd>
+
+  <dt>
+    Type
+  </dt>
+  <dd>
+    <%= @whiskey_entry.match.name %>
+  </dd>
+
+  <dt>
+    Rating
+  </dt>
+  <dd>
+    <%= @whiskey_entry.rating %>
+  </dd>
+
+  <dt>
+    Notes
+  </dt>
+  <dd>
+    <%= @whiskey_entry.note_text %>
+  </dd>
+
+  <dt>
+    Price
+  </dt>
+  <dd>
+    <%= @whiskey_entry.price %>
+  </dd>
+
+
+</dl>
+
